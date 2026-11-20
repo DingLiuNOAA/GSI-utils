@@ -91,6 +91,9 @@ find_package(enkf QUIET)
 
 # NCEPLibs dependencies
 find_package(bacio REQUIRED)
+if(TARGET bacio::bacio AND NOT TARGET bacio::bacio_4)
+  add_library(bacio::bacio_4 ALIAS bacio::bacio)
+endif()
 find_package(sigio REQUIRED)
 find_package(sfcio REQUIRED)
 find_package(nemsio REQUIRED)
